@@ -131,5 +131,10 @@ public class BST<K extends Comparable<K>, V> {
     private class InOrderIterator implements Iterator<Node<K, V>> {
         private Node<K, V> current;
         private Stack<Node<K, V>> nodeStack;
+
+        public InOrderIterator() {
+            current = root;
+            nodeStack = new Stack<>();
+        }
     }
 }
