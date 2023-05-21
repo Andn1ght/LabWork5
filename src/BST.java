@@ -1,2 +1,2 @@
-public class BST {
+public class BST<K extends Comparable<K>, V> {
 }
