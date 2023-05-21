@@ -4,23 +4,14 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 
-public class BST<K extends Comparable<K>, V> {
-    private class Node<K, V> {
+public class BST<K extends Comparable<K>, V> implements Iterable<BST.Node<K, V>>{
+    public static class Node<K, V> {
         private K key;
         private V val;
         private Node<K, V> left, right;
         public Node(K key, V val) {
             this.key = key;
             this.val = val;
-        }
-
-        @Override
-        public String toString() {
-            return "Node{" +
-                    "key=" + key +
-                    ", value=" + val +
-                    ", size=" + size +
-                    '}';
         }
     }
     private Node<K, V> root;
@@ -125,7 +116,7 @@ public class BST<K extends Comparable<K>, V> {
         return (node.left == null) ? node.right : (node.left = deleteMin(node.left));
     }
 
-    public Iterable<Node<K, V>> iterator() {
+    public Iterator<Node<K, V>> iterator() {
         return new InOrderIterator();
     }
 
