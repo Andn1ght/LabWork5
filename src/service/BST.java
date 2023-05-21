@@ -120,4 +120,8 @@ public class BST<K extends Comparable<K>, V> {
     private Node<K, V> deleteMin(Node<K, V> node) {
         return (node.left == null) ? node.right : (node.left = deleteMin(node.left));
     }
+
+    public Iterable<Node<K, V>> iterator() {
+        return new InOrderIterator();
+    }
 }
