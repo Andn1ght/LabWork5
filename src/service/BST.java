@@ -13,6 +13,14 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST.Node<K, V>>
             this.key = key;
             this.val = val;
         }
+
+        public K getKey() {
+            return key;
+        }
+
+        public V getValue() {
+            return val;
+        }
     }
     private Node<K, V> root;
     private int size;
