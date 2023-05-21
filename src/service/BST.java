@@ -114,20 +114,10 @@ public class BST<K extends Comparable<K>, V> {
     }
 
     private Node<K, V> findMin(Node<K, V> node) {
-
-        if (node.left == null)
-            return node;
-
-        return findMin(node.left);
+        return node.left == null ? node : findMin(node.left);
     }
 
     private Node<K, V> deleteMin(Node<K, V> node) {
-
-        if (node.left == null)
-            return node.right;
-
-        node.left = deleteMin(node.left);
-
-        return node;
+        return (node.left == null) ? node.right : (node.left = deleteMin(node.left));
     }
 }
