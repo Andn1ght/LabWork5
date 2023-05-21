@@ -136,5 +136,15 @@ public class BST<K extends Comparable<K>, V> {
             current = root;
             nodeStack = new Stack<>();
         }
+
+        @Override
+        public boolean hasNext() {
+            return false;
+        }
+
+        @Override
+        public Node<K, V> next() {
+            return null;
+        }
     }
 }
