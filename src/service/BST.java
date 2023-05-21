@@ -139,7 +139,7 @@ public class BST<K extends Comparable<K>, V> {
 
         @Override
         public boolean hasNext() {
-            return false;
+            return !nodeStack.isEmpty() || current != null;
         }
 
         @Override
