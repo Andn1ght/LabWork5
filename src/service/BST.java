@@ -9,6 +9,15 @@ public class BST<K extends Comparable<K>, V> {
             this.key = key;
             this.val = val;
         }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "key=" + key +
+                    ", value=" + val +
+                    ", size=" + size +
+                    '}';
+        }
     }
     private Node<K, V> root;
     private int size;
