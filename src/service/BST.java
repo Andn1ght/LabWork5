@@ -86,10 +86,23 @@ public class BST<K extends Comparable<K>, V> {
         else if (comparison > 0)
             node.right = delete(node.right, key);
         else {
-            Node<K, V> replaceTemp = findMin(node.right);
-            node.key = replaceTemp.key;
-            node.val = replaceTemp.val;
-            node.right = deleteMin(node.right);
+            //case 1: no children
+            if(node.left == null && node.right == null){
+                return null;
+            }
+            //case 2:  1 child
+            else if (node.left == null)
+                return node.right;
+            else if (node.right == null)
+                return node.left;
+            //case3: two children
+            else {
+                Node<K, V> replaceTemp = findMin(node.right);
+                node.key = replaceTemp.key;
+                node.val = replaceTemp.val;
+                node.right = deleteMin(node.right);
+            }
         }
+        return node;
     }
 }
