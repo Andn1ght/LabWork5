@@ -160,4 +160,8 @@ public class BST<K extends Comparable<K>, V> {
 
         }
     }
+
+    public int size() {
+        return size;
+    }
 }
