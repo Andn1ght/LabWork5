@@ -23,8 +23,10 @@ public class BST<K extends Comparable<K>, V> {
     private int size;
 
     public void put(K key, V val) {
+
         if (key == null)
             throw new IllegalArgumentException("Null key is not allowed.");
+
         root = put(root, key, val);
     }
 
@@ -48,6 +50,7 @@ public class BST<K extends Comparable<K>, V> {
     }
 
     public V get(K key) {
+
         if (key == null)
             throw new IllegalArgumentException("Null key is not allowed.");
 
@@ -71,6 +74,7 @@ public class BST<K extends Comparable<K>, V> {
     }
 
     public void delete(K key) {
+
         if (key == null)
             throw new IllegalArgumentException("Null key is not allowed.");
 
@@ -78,9 +82,12 @@ public class BST<K extends Comparable<K>, V> {
     }
 
     private Node<K, V> delete(Node<K, V> node, K key) {
+
         if (node == null)
             return null;
+
         int comparison = key.compareTo(node.key);
+
         if (comparison < 0)
             node.left = delete(node.left, key);
         else if (comparison > 0)
@@ -105,9 +112,22 @@ public class BST<K extends Comparable<K>, V> {
         }
         return node;
     }
+
     private Node<K, V> findMin(Node<K, V> node) {
+
         if (node.left == null)
             return node;
+
         return findMin(node.left);
+    }
+
+    private Node<K, V> deleteMin(Node<K, V> node) {
+
+        if (node.left == null)
+            return node.right;
+
+        node.left = deleteMin(node.left);
+
+        return node;
     }
 }
