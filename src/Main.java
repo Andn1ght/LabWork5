@@ -18,9 +18,7 @@ public class Main {
             // Access an invalid key
             String value = tree.get(10);
             System.out.println("Value for key 10: " + value);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
-        } catch (NoSuchElementException e) {
+        } catch (IllegalArgumentException | NoSuchElementException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
