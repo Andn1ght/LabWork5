@@ -46,4 +46,27 @@ public class BST<K extends Comparable<K>, V> {
 
         return node;
     }
+
+    public V get(K key) {
+        if (key == null)
+            throw new IllegalArgumentException("Null key is not allowed.");
+
+        Node<K, V> node = get(root, key);
+        return (node == null) ? null : node.val;
+    }
+
+    private Node<K, V> get(Node<K, V> node, K key) {
+
+        if (node == null)
+            return null;
+
+        int comparison = key.compareTo(node.key);
+
+        if (comparison < 0)
+            return get(node.left, key);
+        else if (comparison > 0)
+            return get(node.right, key);
+        else
+            return node;
+    }
 }
