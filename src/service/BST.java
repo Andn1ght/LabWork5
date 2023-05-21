@@ -105,4 +105,9 @@ public class BST<K extends Comparable<K>, V> {
         }
         return node;
     }
+    private Node<K, V> findMin(Node<K, V> node) {
+        if (node.left == null)
+            return node;
+        return findMin(node.left);
+    }
 }
