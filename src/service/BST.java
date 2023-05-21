@@ -1,6 +1,7 @@
 package service;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Stack;
 
 public class BST<K extends Comparable<K>, V> {
@@ -144,7 +145,19 @@ public class BST<K extends Comparable<K>, V> {
 
         @Override
         public Node<K, V> next() {
-            return null;
+
+            while (current != null) {
+                nodeStack.push(current);
+                current = current.left;
+            }
+
+            if (!hasNext())
+                throw new NoSuchElementException("No more elements in the BST.");
+
+            Node<K, V> node = nodeStack.pop();
+            current = node.right;
+            return node;
+
         }
     }
 }
