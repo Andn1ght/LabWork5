@@ -6,14 +6,19 @@ public class Main {
     public static void main(String[] args) {
         try {
             BST<Integer, String> tree = new BST<>();
-            tree.put(5, "Arman");
-            tree.put(2, "Zhandos");
-            tree.put(8, "Amir");
-            tree.put(4, "Ali");
-            tree.put(3, "Anuar");
-            tree.put(12, "Aldiyar");
-            tree.put(-4, "Zhanibek");
+            tree.put(7, "Arman");
+            tree.put(5, "Zhandos");
+            tree.put(14, "Amir");
+            tree.put(6, "Ali");
+            tree.put(4, "Anuar");
+            tree.put(11, "Aldiyar");
+            tree.put(17, "Zhanibek");
             tree.put(0, "Alikhan");
+            tree.put(12, "Almas");
+            tree.put(14, "Andrey");
+            tree.put(25, "Max");
+            tree.put(3, "Nurali");
+            tree.put(9, "Kerey");
 
             System.out.println("----------------------------------------------------------");
 
@@ -43,6 +48,8 @@ public class Main {
             for (BST.Node<Integer, String> node : tree) {
                 System.out.println("Key is " + node.getKey() + " and Value is " + node.getValue());
             }
+
+            System.out.println("Tree height is: " + tree.countHeight());
 
         } catch (IllegalArgumentException | NoSuchElementException e) {
             System.out.println("Error: " + e.getMessage());

@@ -279,4 +279,18 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST.Node<K, V>>
     public int size() {
         return size;
     }
+
+    public int countHeight() {
+        return countHeight(root);
+    }
+
+    private int countHeight(Node<K, V> node) {
+        if (node == null) {
+            return -1;
+        }
+        int leftCountHeight = countHeight(node.left);
+        int rightCountHeight = countHeight(node.right);
+
+        return leftCountHeight > rightCountHeight ? leftCountHeight + 1 : rightCountHeight + 1;
+    }
 }
